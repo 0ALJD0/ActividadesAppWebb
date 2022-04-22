@@ -86,11 +86,19 @@ function recorrerForEach(Arreglo) {
 		
 	});
 }
+//llamando a las funciones para probar qque se ejecuten correctamente
 
-recorrerFor(comidasFavoritas);
+/*recorrerFor(comidasFavoritas);
 recorrerWhile(comidasFavoritas);
 recorrerDoWhile(comidasFavoritas);
 recorrerForEach(comidasFavoritas);
+*/
 
-
-
+//he utilizado el module.exports, para no tener que volver a escribir el arreglo comidasFavoritas
+//otra vez, en el archivo act5.js
+//por ello hay que ejecutar primero este archivo, descomentando las funciones, para ver que funcionan
+//y luego volver a comenarlas, cuando ejecutemos el act5.js ;)
+module.exports ={
+	fcomidas:comidasFavoritas,
+	recorrerDoWhile
+}
