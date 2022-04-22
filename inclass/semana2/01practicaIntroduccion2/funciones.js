@@ -18,7 +18,7 @@ function saludar(nombre)
     return `hola ${nombre}`
 
 }
-
+//Como exportar variables o funciones y/o metodos desde un archivo.
 module.exports = {
     iva:12,
     funcion1:operacion,

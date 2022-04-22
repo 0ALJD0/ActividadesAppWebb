@@ -1,3 +1,5 @@
+
+//Nos explica como se llaman o se invocan esos modulos que exportamos.
 const { iva, funcion1 }   = require("./funciones");
 
 
