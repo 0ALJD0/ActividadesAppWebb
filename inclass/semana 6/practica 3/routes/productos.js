@@ -13,9 +13,9 @@ const {
 
 const router = Router();
 router.get('/', ObtenerProductos)
-router.get('/:id',ObtenerProducto)
-router.post('/', [check('nombre', 'El nombre es obligatorio').not().isEmpty()],validarCampos,crearProducto);
-router.put('/:id',[check('id','El id no es válido').isMongoId], actualizarProducto);
-router.delete('/:id',[check('id','El id no es válido').isMongoId],borrarProducto)
+router.get('/:id',[check('id','El id no es válido').isMongoId,validarCampos],ObtenerProducto)
+router.post('/', [check('nombre', 'El nombre es obligatorio').not().isEmpty(),validarCampos],crearProducto);
+router.put('/:id',[check('id','El id no es válido').isMongoId,validarCampos], actualizarProducto);
+router.delete('/:id',[check('id','El id no es válido').isMongoId,validarCampos],borrarProducto)
 
 module.exports=router;

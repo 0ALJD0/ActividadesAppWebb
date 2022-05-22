@@ -7,4 +7,4 @@ const validarCampos=()=>{
     }
     next();
 }
-module.exports=validarCampos;
+module.exports={validarCampos};

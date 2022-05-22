@@ -1,0 +1,2 @@
+PORT=3000
+MONOGODB_CNN=mongodb+srv://Alejado:ODxf308vMfQdOYyf@practicasappweb.wuwla.mongodb.net/DataBasesAppTallerService?retryWrites=true&w=majority
