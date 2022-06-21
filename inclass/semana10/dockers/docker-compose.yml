@@ -1,0 +1,12 @@
+version: '2'
+services:
+  api:
+    build: . #aqui escribimos la carpeta del dockerfile
+    depends_on:
+      - mongo
+      environment:
+      #colaca el nombre dde las variables de entorno
+      - PORT #PUEDES INDICAR EL VALOR DE LAS VARIABLES PORT=2500
+      - MONGODB_CNN # mongo://mongo:27017/test 
+  mongo:
+    image: mongo
