@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VerCitaCliente = exports.Ccliente = exports.rCitas = exports.VTaller = exports.vehiculo = void 0;
+const RouteVehiculo_1 = require("./RouteVehiculo");
+Object.defineProperty(exports, "vehiculo", { enumerable: true, get: function () { return RouteVehiculo_1.router; } });
+const rutaverTallers_1 = require("./rutaverTallers");
+Object.defineProperty(exports, "VTaller", { enumerable: true, get: function () { return rutaverTallers_1.router; } });
+const routeCita_1 = require("./routeCita");
+Object.defineProperty(exports, "rCitas", { enumerable: true, get: function () { return routeCita_1.router; } });
+const crearcliente_1 = require("./crearcliente");
+Object.defineProperty(exports, "Ccliente", { enumerable: true, get: function () { return crearcliente_1.router; } });
+const rutaVerCitaCliente_1 = require("./rutaVerCitaCliente");
+Object.defineProperty(exports, "VerCitaCliente", { enumerable: true, get: function () { return rutaVerCitaCliente_1.router; } });
