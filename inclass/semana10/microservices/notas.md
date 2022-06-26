@@ -1,0 +1,1 @@
+entrypoitns se hubican en docker distintos,cada uno de estos será un microservicio que se implemntará en nuestras aplicación, tanto de backen como en forntend
