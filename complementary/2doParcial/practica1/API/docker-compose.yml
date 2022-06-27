@@ -1,14 +1,19 @@
 version: '3'
-
+#elegimos version bien podría ser 1
 services:
+#indicamos los servicios, primero la api
   api:
+    #indicamos el directorio
     build: .
     depends_on:
+    #las dependencias de mongo
       - mongo
     environment:
+    #declaramos variables de entorno para la aplicación
       - PORT=3000
       - MONGODB_CNN=mongodb://mongo:27017/test
     ports:
+    #puerto que se usará para correr la aplicacion desde la computadora física
       - "3000:3000"
   mongo:
     image: mongo
