@@ -1,48 +1,49 @@
 version: '1'
-
 services:
+ ##Asignando las configuraciones para cada uno de los microservicios y el monolitico
   monolitico:
     build: ./monolitico
     depends_on:
       - mongo
     environment:
       - PORT=3000
-      - MONGODB_CNN=mongodb://mongo:27017/test
+      - MONGODB_CNN=mongodb://mongo:40000/test
   cliente:
     build: ./microservicios/crearcliente
     depends_on:
-      - mongo
+      - mongo1
     environment:
       - PORT=3000
-      - MONGODB_CNN=mongodb://mongo:27017/test
+      - MONGODB_CNN=mongodb://mongo1:40008/test
   vehiculo:
     build: ./microservicios/nuevoVehiculo
     depends_on:
-      - mongo
+      - mongo2
     environment:
       - PORT=3000
-      - MONGODB_CNN=mongodb://mongo:27017/test
+      - MONGODB_CNN=mongodb://mongo2:40016/test
   citascliente:
     build: ./microservicios/verCitasCliente
     depends_on:
-      - mongo
+      - mongo3
     environment:
       - PORT=3000
-      - MONGODB_CNN=mongodb://mongo:27017/test
+      - MONGODB_CNN=mongodb://mongo3:40024/test
   citasrepre:
     build: ./microservicios/verCitasRepre
     depends_on:
-      - mongo
+      - mongo4
     environment:
       - PORT=3000
-      - MONGODB_CNN=mongodb://mongo:27017/test
+      - MONGODB_CNN=mongodb://mongo4:40032/test
   vertalleres:
     build: ./microservicios/verTalleres
     depends_on:
-      - mongo
+      - mongo5
     environment:
       - PORT=3000
-      - MONGODB_CNN=mongodb://mongo:27017/test
+      - MONGODB_CNN=mongodb://mongo5:40040/test
+  
   nginx:
     image: nginx:latest
     ports:
@@ -56,5 +57,30 @@ services:
       - citascliente
       - citasrepre
       - vertalleres
+  ## Creo una imagen de mongo distinta para cada uno de los microservicios y monolitico
   mongo:
     image: mongo
+    ##exponiendo los puertos de cada base de datos de mongo
+    ports: 
+      - "40000:40000"
+  mongo1:
+    image: mongo
+    ports: 
+      - "40008:40008"
+  mongo2:
+    image: mongo
+    ports: 
+      - "40016:40016"
+  mongo3:
+    image: mongo
+    ports: 
+      - "40024:40024"
+  mongo4: 
+    image: mongo
+    ports: 
+      - "40032:40032"
+  mongo5:
+    image: mongo
+    ports: 
+      - "40040:40040"
+

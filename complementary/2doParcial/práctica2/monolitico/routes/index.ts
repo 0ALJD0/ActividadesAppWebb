@@ -1,7 +1,4 @@
-import { router as vehiculo } from "./RouteVehiculo";
-import { router as VTaller} from "./rutaverTallers";
-import { router as rCitas } from "./routeCita";
-import {router as Ccliente} from "./crearcliente";
-import { router as VerCitaCliente } from "./rutaVerCitaCliente";
 
-export{vehiculo, VTaller, rCitas, Ccliente, VerCitaCliente};
+import { router as RutasC } from "./cliente";
+import { router as RutasR } from "./representante";
+export{RutasC,RutasR};

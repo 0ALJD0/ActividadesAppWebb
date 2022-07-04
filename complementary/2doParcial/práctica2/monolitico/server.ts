@@ -1,7 +1,7 @@
 import express,{Express,Router} from 'express';
 import cors from 'cors';
 import {dbConnection} from './database/config'
-import { VTaller,vehiculo, rCitas, Ccliente, VerCitaCliente } from './routes';
+import { RutasC,RutasR } from './routes';
 class Server {
     App: Router;
     Router:Router;
@@ -31,11 +31,8 @@ class Server {
         this.App.use(express.json());
     }
     private routes(){
-        this.App.use(this.paths.cliente, vehiculo );
-        this.App.use(this.paths.cliente, VTaller);
-        this.App.use(this.paths.cliente, rCitas);
-        this.App.use(this.paths.cliente, Ccliente );
-        this.App.use(this.paths.representante, VerCitaCliente)
+        this.App.use(this.paths.cliente, RutasC );
+        this.App.use(this.paths.representante, RutasR)
     }
      listen(){
         this._express.listen(this.port, ()=>{

@@ -66,11 +66,8 @@ class Server {
         this.App.use(express_1.default.json());
     }
     routes() {
-        this.App.use(this.paths.cliente, routes_1.vehiculo);
-        this.App.use(this.paths.cliente, routes_1.VTaller);
-        this.App.use(this.paths.cliente, routes_1.rCitas);
-        this.App.use(this.paths.cliente, routes_1.Ccliente);
-        this.App.use(this.paths.representante, routes_1.VerCitaCliente);
+        this.App.use(this.paths.cliente, routes_1.RutasC);
+        this.App.use(this.paths.representante, routes_1.RutasR);
     }
     listen() {
         this._express.listen(this.port, () => {

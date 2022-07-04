@@ -1,10 +1,8 @@
-import * as Cvehiculo from "./Cvehiculo";
-import * as Vtalleres from "./VerTallers"
-import * as Ccliente from "./Ccliente"
-import * as VerCitaCliente from "./VerCitaCliente"
-import { ControllerCita } from "./ControllersCita"
-
-
+import { crearCita,elminaCita} from './CitaControllers';
+import { crearTaller,editarTaller } from './TallerControllers';
 export{
-    Cvehiculo, Vtalleres , Ccliente, ControllerCita, VerCitaCliente
+    crearCita,
+    crearTaller, 
+    elminaCita,
+    editarTaller
 }

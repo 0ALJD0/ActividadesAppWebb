@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+const express_1 = require("express");
+const express_validator_1 = require("express-validator");
+const validar_1 = require("../middleware/validar");
+const controllers_1 = require("../controllers");
+const router = (0, express_1.Router)();
+exports.router = router;
+router.get('/cita');
+router.post('/ntaller', [(0, express_validator_1.check)('NombreTaller', 'El nombre es obligatorio').not().isEmpty(), validar_1.validarCampos], controllers_1.crearTaller);
+router.put('/etaller/:id', controllers_1.editarTaller);
