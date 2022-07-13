@@ -81,9 +81,49 @@ consultar.addEventListener('click',async ()=>{
  cuerpo.innerHTML="";
  cuerpo.appendChild(tabla);
  document.querySelectorAll('.boton').forEach((elemento:Element)=>{
-  (elemento as HTMLButtonElement).addEventListener('click', ()=>{
-    console.log('funciona el evento del boton');
-    httpsAxios.get(`productos/62ba6c56f371a5cffcfc5ddb`)
+  elemento.addEventListener('click', async ()=>{
+    const {data} =  await httpsAxios.get<Producto>(`productos/${(elemento as HTMLButtonElement).value}`);
+    console.log(data);
+    nombre.value = data.nombre;
+    precio.value =  data.precio.toString();
+    costo.value = data.costo.toString();
+    minimo.value = data.minimo.toString();
+    stock.value = data.stock.toString();
+    estado.value = data.estado!.toString();
+    id.value = data._id!;
+    //httpsAxios.get(`productos/62ba6c56f371a5cffcfc5ddb`)
     });
 })
+});
+
+const asignarValores = () => {
+  const data:Producto = {
+    nombre : nombre.value,
+    precio : Number(precio.value),
+    costo :  Number(costo.value),
+    stock :  Number(stock.value),
+    minimo :  Number(minimo.value),
+  }
+  return data;
+}
+
+grabar.addEventListener('click', async ()=>{
+  //el punto data lo que duelve es un json por esa razon agregamos ".data en el Axios, para tener el retorno del json."
+  const data = asignarValores(); //}
+  if(id.value.trim().length > 0) {
+    const resproducto:Producto = await (await httpsAxios.put(`productos/${id.value}`, data)).data;
+    //parametro opcion que muestra un mensaje temporal
+    console.log(`El producto ${resproducto.nombre} fue modifidicado con exito.`);
+    return;
+  }
+  
+  try {
+    const resproducto:Producto = await (await httpsAxios.post<Producto>(`productos`, data)).data;
+    console.log(`El producto ${resproducto.nombre} fue insertado con exito.`);
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(`Error en axios...`);
+    }
+    console.log(`Error: ${error}`);
+  }
 });
